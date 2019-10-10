@@ -12,9 +12,9 @@ public class BankMain {
 	public static void main(String[] args) {
 		
 			/*Connection con = DBConnetor.getConnection();
-			System.out.println(con);*/ //연결 확인
+			System.out.println(con);*/    					//연결 확인
 		
-		/*	MemberDAO memberDAO = new MemberDAO();
+			/*	MemberDAO memberDAO = new MemberDAO();
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId("iu");
 			memberDTO.setPw("iu");
@@ -27,8 +27,10 @@ public class BankMain {
 			} catch (Exception e) {
 			
 				e.printStackTrace();
-			} 	// DAO Join 확인
+			} 											// DAO Join 확인
 		
+	
+	
 	/*	MemberDAO memberDAO = new MemberDAO();
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("iu");
@@ -41,6 +43,7 @@ public class BankMain {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
+		
 		
 		
 		/*MemberControll memberControll = new MemberControll();
