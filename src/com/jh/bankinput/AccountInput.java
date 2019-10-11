@@ -5,18 +5,23 @@ import java.util.Scanner;
 
 import com.jh.account.AccountDTO;
 
+
 public class AccountInput {
 	
-	public AccountDTO createaccount(Scanner sc, String id) {
+	public AccountDTO createaccount(Scanner sc) {
+		
+		
 		AccountDTO accountDTO = new AccountDTO();
 		
-		Calendar calendar = Calendar.getInstance();
 		
-		accountDTO.setAccountNumber(String.valueOf(calendar.getTimeInMillis()));
-		System.out.println("이름을 입력하세요");
+		System.out.println("계좌명을 입력하세요");
 		accountDTO.setAccountName(sc.next());
-		accountDTO.setAccountBalance(0);
-		accountDTO.setId(id);
+		
+		Calendar calendar = Calendar.getInstance(); //추상클래스
+		long l = calendar.getTimeInMillis();
+		
+		accountDTO.setAccountNumber(String.valueOf(l));
+		
 		
 		return accountDTO;
 		

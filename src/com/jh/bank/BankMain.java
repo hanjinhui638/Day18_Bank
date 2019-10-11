@@ -1,15 +1,30 @@
 package com.jh.bank;
 
-import java.sql.Connection;
 
+import com.jh.accountlnfo.AccountInfoDAO;
+import com.jh.accountlnfo.AccountInfoDTO;
 import com.jh.member.MemberControll;
-import com.jh.member.MemberDAO;
-import com.jh.member.MemberDTO;
-import com.jh.util.DBConnetor;
+
 
 public class BankMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
+		
+		
+		
+		
+		
+		/*	AccountInfoDAO accountInfoDAO = new AccountInfoDAO();
+			AccountInfoDTO accountInfoDTO = new AccountInfoDTO();
+			accountInfoDTO.setIncome(50);
+			accountInfoDTO.setAccountBalance(150);
+			accountInfoDTO.setIncomeKind(0);
+			accountInfoDTO.setAccountNumber("1570759476822");
+			
+			
+			int result = accountInfoDAO.income(accountInfoDTO);
+			System.out.println(result); */
+		
 		
 			/*Connection con = DBConnetor.getConnection();
 			System.out.println(con);*/    					//연결 확인
@@ -28,6 +43,9 @@ public class BankMain {
 			
 				e.printStackTrace();
 			} 											// DAO Join 확인
+			
+			
+			
 		
 	
 	
@@ -46,11 +64,9 @@ public class BankMain {
 		
 		
 		
-		/*MemberControll memberControll = new MemberControll();
-		memberControll.start();*/
-		
-	
-			
+		MemberControll memberControll = new MemberControll();
+		memberControll.start();
+					
 		
 	}
 

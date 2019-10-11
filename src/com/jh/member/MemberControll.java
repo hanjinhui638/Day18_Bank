@@ -2,6 +2,7 @@ package com.jh.member;
 
 import java.util.Scanner;
 
+import com.jh.account.AccountController;
 import com.jh.bankView.BankView;
 import com.jh.bankinput.MemberInput;
 
@@ -11,13 +12,15 @@ public class MemberControll {
 	private MemberDAO memberDAO;
 	private MemberInput memberInput;
 	private BankView bankView;
-	
+	private AccountController accountController;
+	private MemberDTO memberDTO;
 	
 	public MemberControll() {
 		sc = new Scanner(System.in);
 		memberDAO = new MemberDAO();
 		memberInput = new MemberInput();
 		bankView = new BankView();
+		accountController = new AccountController();
 	}
 
 	public void start() {
@@ -30,7 +33,7 @@ public class MemberControll {
 			System.out.println("2. 로그인");
 			System.out.println("3. 로그아웃");
 			int select = sc.nextInt();
-			 MemberDTO memberDTO = null;//초기화필요한 변수 
+			memberDTO = null;//초기화필요한 변수 
 			
 			
 			switch(select) {
@@ -47,13 +50,14 @@ public class MemberControll {
 				String msg2 = "Member Join Fail";
 				if(select > 0) {
 					msg2 = "Member Join Success";
+				}else {
+				
 				}
 				bankView.view(msg2);
-				
 				break;
 				
 			case 2 :
-				memberDTO = memberInput.memberJoin(sc);
+				memberDTO = memberInput.memberLogin(sc);
 				try {
 					memberDTO = memberDAO.memberLogin(memberDTO);
 				} catch (Exception e) {
@@ -63,12 +67,15 @@ public class MemberControll {
 				}
 				
 				
-				String msg = "Login Fail";
+				
 				if(memberDTO !=null) {
-					msg = "Login Success";
+					bankView.view("Login Success");
+					accountController.start(memberDTO);
 					
+					
+				}else {
+				bankView.view("Login Fail");
 				}
-				bankView.view(msg);
 				break;
 				
 			default : 
